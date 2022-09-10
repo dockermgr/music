@@ -229,9 +229,9 @@ else
     -v $LOCAL_DATA_DIR:/data \
     -v $LOCAL_CONFIG_DIR:/config \
     -v $HOME/Music:/data/music \
+    -p $SERVER_PORT_EXT:$SERVER_PORT_INT \
     -p $SERVER_PORT_ADMIN_EXT:$SERVER_PORT_ADMIN_INT \
-    -p $SERVER_LISTEN:$SERVER_PORT_EXT:$SERVER_PORT_INT \
-    -p $SERVER_LISTEN:$SERVER_PORT_OTHER_EXT:$SERVER_PORT_OTHER_INT \
+    -p $SERVER_PORT_OTHER_EXT:$SERVER_PORT_OTHER_INT \
     "$HUB_URL" &>/dev/null
 fi
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
