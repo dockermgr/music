@@ -219,6 +219,7 @@ if cmd_exists docker-compose && [ -f "$INSTDIR/docker-compose.yml" ]; then
 else
   __sudo docker stop "$APPNAME" &>/dev/null
   __sudo docker rm -f "$APPNAME" &>/dev/null
+  __sudo docker pull "$HUB_URL" &>/dev/null
   __sudo docker run -d \
     --name="$APPNAME" \
     --hostname "$SERVER_HOST" \
@@ -227,8 +228,8 @@ else
     -e TZ="$SERVER_TIMEZONE" \
     -v $LOCAL_DATA_DIR:/data \
     -v $LOCAL_CONFIG_DIR:/config \
+    -p $SERVER_PORT_ADMIN_EXT:$SERVER_PORT_ADMIN_INT \
     -p $SERVER_LISTEN:$SERVER_PORT_EXT:$SERVER_PORT_INT \
-    -p $SERVER_LISTEN:$SERVER_PORT_ADMIN_EXT:$SERVER_PORT_ADMIN_INT \
     -p $SERVER_LISTEN:$SERVER_PORT_OTHER_EXT:$SERVER_PORT_OTHER_INT \
     "$HUB_URL" &>/dev/null
 fi
