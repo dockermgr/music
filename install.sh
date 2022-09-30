@@ -18,7 +18,7 @@
 # @@sudo/root        :  no
 # @@Template         :  installers/dockermgr
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-APPNAME="music"
+APPNAME="navidrome"
 VERSION="202209070006-git"
 HOME="${USER_HOME:-$HOME}"
 USER="${SUDO_USER:-$USER}"
@@ -91,14 +91,14 @@ scripts_check
 dockermgr_req_version "$APPVERSION"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Repository variables
-REPO="${DOCKERMGRREPO:-https://github.com/dockermgr}/music"
+REPO="${DOCKERMGRREPO:-https://github.com/dockermgr}/navidrome"
 APPVERSION="$(__appversion "$REPO/raw/${GIT_REPO_BRANCH:-main}/version.txt")"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Defaults variables
-APPNAME="music"
-INSTDIR="$HOME/.local/share/dockermgr/music"
-APPDIR="$HOME/.local/share/srv/docker/music"
-DATADIR="$HOME/.local/share/srv/docker/music/files"
+APPNAME="navidrome"
+INSTDIR="$HOME/.local/share/dockermgr/navidrome"
+APPDIR="$HOME/.local/share/srv/docker/navidrome"
+DATADIR="$HOME/.local/share/srv/docker/navidrome/files"
 DOCKERMGR_HOME="${DOCKERMGR_HOME:-$HOME/.config/myscripts/dockermgr}"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Directory variables for container
@@ -147,7 +147,7 @@ SERVER_MESSAGE_PASS=""
 SERVER_MESSAGE_POST=""
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # URL to container image [docker pull URL]
-HUB_URL="casjaysdevdocker/music"
+HUB_URL="casjaysdevdocker/navidrome"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # import global variables
 if [ -f "$APPDIR/env.sh" ] && [ ! -f "$DOCKERMGR_HOME/env/$APPNAME" ]; then
@@ -228,7 +228,7 @@ else
     -e TZ="$SERVER_TIMEZONE" \
     -v $LOCAL_DATA_DIR:/data \
     -v $LOCAL_CONFIG_DIR:/config \
-    -v $HOME/Music:/data/music \
+    -v $HOME/navidrome:/data/navidrome \
     -p $SERVER_PORT_EXT:$SERVER_PORT_INT \
     -p $SERVER_PORT_OTHER_EXT:$SERVER_PORT_OTHER_INT \
     "$HUB_URL" &>/dev/null

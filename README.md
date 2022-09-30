@@ -1,4 +1,4 @@
-## 👋 Welcome to music 🚀  
+## 👋 Welcome to navidrome 🚀  
 
    
   
@@ -15,26 +15,26 @@ OR
 ### Automatic install/update  
 
 ```shell
-dockermgr update music
+dockermgr update navidrome
 ```
 
 #### Just run it
 
 ```shell
-mkdir -p "$HOME/.local/share/srv/docker/music/"
+mkdir -p "$HOME/.local/share/srv/docker/navidrome/"
 
-git clone "https://github.com/dockermgr/music" "$HOME/.local/share/CasjaysDev/dockermgr/music"
+git clone "https://github.com/dockermgr/navidrome" "$HOME/.local/share/CasjaysDev/dockermgr/navidrome"
 
-cp -Rfva "$HOME/.local/share/srv/docker/music/dataDir/." "$HOME/.local/share/srv/docker/music/"
+cp -Rfva "$HOME/.local/share/srv/docker/navidrome/dataDir/." "$HOME/.local/share/srv/docker/navidrome/"
 
 sudo docker run -d \
---name="music" \
---hostname "music" \
+--name="navidrome" \
+--hostname "navidrome" \
 --restart=always \
 --privileged \
 -e TZ="${TZ:-${TIMEZONE:-America/New_York}}" \
--v "$HOME/.local/share/srv/docker/music/files/data":/data:z \
--v "$HOME/.local/share/srv/docker/music/files/config":/config:z \
+-v "$HOME/.local/share/srv/docker/navidrome/files/data":/data:z \
+-v "$HOME/.local/share/srv/docker/navidrome/files/config":/config:z \
 -p PORT:INT_PORT \
 TEMPLATE/TEMPLATE 1>/dev/null
 ```
