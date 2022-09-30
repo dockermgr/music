@@ -226,9 +226,9 @@ else
     --restart=always \
     --privileged \
     -e TZ="$SERVER_TIMEZONE" \
-    -v $LOCAL_DATA_DIR:/data \
-    -v $LOCAL_CONFIG_DIR:/config \
-    -v $HOME/navidrome:/data/navidrome \
+    -v $LOCAL_DATA_DIR:/data:z \
+    -v $LOCAL_CONFIG_DIR:/config:z \
+    -v $HOME/Music:/data/music:z \
     -p $SERVER_PORT_EXT:$SERVER_PORT_INT \
     -p $SERVER_PORT_OTHER_EXT:$SERVER_PORT_OTHER_INT \
     "$HUB_URL" &>/dev/null
